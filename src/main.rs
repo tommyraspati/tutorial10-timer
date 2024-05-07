@@ -1,3 +1,6 @@
+pub mod timer;
+
+use crate::timer::TimerFuture;
 use futures::{
     future::{BoxFuture, FutureExt},
     task::{waker_ref, ArcWake},
@@ -9,9 +12,6 @@ use std::{
     task::Context,
     time::Duration,
 };
-
-// The timer we wrote in the previous section:
-use timer_future::TimerFuture;
 
 /// Task executor that receives tasks off of a channel and runs them.
 struct Executor {
